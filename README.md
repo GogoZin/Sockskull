@@ -2,6 +2,11 @@
 
 Just A Simple Script Show You How To Use Socks To Dos
 
-Usage : python3 socksdos.py (url) (thread) (sockslist.txt)
+#INSTALL
+pip3 install requests pysocks
+
+#RUN
+python3 socksdos.py
+
 
 GOGOZIN 2019/8/20
