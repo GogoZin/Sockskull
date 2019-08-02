@@ -41,6 +41,7 @@ def main():
 		rsp = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
+			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
 	else:
 		pass
 	list = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
