@@ -6,14 +6,18 @@ I Name It -> Sockskull
 ***********************************************************
 # INSTALL
 
-    pip3 install requests pysocks
+    pip3 install requests pysocks colorama
+    
+    git clone https://github.com/GogoZin/Sockskull
 ***********************************************************
 # RUN
 
-    python3 socksdos.py
+    cd Sockskull
+
+    python3 sockskull.py
 ***********************************************************
 # Update 
 
     Add Auto Clone Socks List
 ***********************************************************
-GOGOZIN 2019/8/20
+GOGOZIN 2019/8/2
