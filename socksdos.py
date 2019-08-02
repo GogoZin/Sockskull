@@ -32,7 +32,6 @@ def main():
 	global list
 	global proxy
 	global url
-	s = requests.session()
 	url = str(input("Target : "))
 	thr = int(input("Threads : "))
 	list = str(input("Socks List : "))
