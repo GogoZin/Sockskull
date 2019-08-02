@@ -1,7 +1,7 @@
 # THIS PROJECT JUST A DEMO
 
-Just A Simple Script Show How To Bypass Low CF
+Just A Simple Script Show You How To Use Socks To Dos
 
-Usage : python3 cfbypass.py (url) (threads)
+Usage : python3 socksdos.py (url) (thread) (sockslist.txt)
 
-GOGOZIN 2019/7/30
+GOGOZIN 2019/8/20
