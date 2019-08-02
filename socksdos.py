@@ -39,7 +39,7 @@ def main():
 	cho = str(input("Get Some Fresh Socks ? (y/n) : "))
 	if cho =='y':
 		rsp = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
-		with open('socks.txt'.'wb') as fp:
+		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 	else:
 		pass
