@@ -1,6 +1,7 @@
 # THIS PROJECT JUST A DEMO
 
 Just A Simple Script Show You How To Use Socks To Dos
+I Name It -> Sockskull
 ***********************************************************
 # INSTALL
 
