@@ -19,5 +19,7 @@ I Name It -> Sockskull
 # Update 
 
     Add Auto Clone Socks List
+    
+    Change Socks' API  //More Fast More Safe
 ***********************************************************
 GOGOZIN 2019/8/2
