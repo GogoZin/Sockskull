@@ -38,7 +38,7 @@ def main():
 	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all&anonymity=elite&ssl=yes')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
