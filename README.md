@@ -18,8 +18,8 @@ I Name It -> Sockskull
 ***********************************************************
 # Update 
 
-    Add Auto Clone Socks List
+    Add Auto Clone Socks List -2019/8/3
     
-    Change Socks' API  //More Fast More Safe
+    Change Socks' API  //More Fast More Safe -2019/8/4
 ***********************************************************
 GOGOZIN 2019/8/2
