@@ -21,5 +21,8 @@ I Name It -> Sockskull
     Add Auto Clone Socks List -2019/8/3
     
     Change Socks' API  //More Fast More Safe -2019/8/4
+    
+    Add Threads' Optimization And More Socks In List -2019/8/9
+    
 ***********************************************************
 GOGOZIN 2019/8/2
