@@ -44,6 +44,7 @@ def main():
 	global proxy
 	global url
 	global pwr
+	global thr
 	url = str(input(Fore.BLUE + "Target : " + Fore.WHITE))
 	thr = int(input(Fore.BLUE + "Threads (Default Is 300) : " + Fore.WHITE))
 	if thr == "":
