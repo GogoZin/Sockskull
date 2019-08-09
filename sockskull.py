@@ -1,7 +1,7 @@
 import requests
 import random
 import time
-from threading import Thread
+import threading
 from colorama import Fore
 
 print(Fore.GREEN + """    	     .,:ccllllc:,.              
