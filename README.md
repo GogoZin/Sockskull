@@ -25,4 +25,13 @@ I Name It -> Sockskull
     Add Threads' Optimization And More Socks In List -2019/8/9
     
 ***********************************************************
+# NOTE
+
+    I Got The Script's Error Today 
+    
+    So I Take Sometime To Fix It 
+    
+    Now The Script Is More Stable And More Powerful -2019/8/10
+    
+*************************************************************
 GOGOZIN 2019/8/2
