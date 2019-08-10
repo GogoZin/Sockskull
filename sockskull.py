@@ -68,6 +68,8 @@ def main():
 		list = 'socks.txt'
 	else:
 		list = str(list)
+	pprr = open(list).readlines()
+	print(Fore.BLUE + "Socks Count : " + Fore.WHITE + "%d " %len(pprr))
 	pwr = int(input(Fore.BLUE + "CC.Power (1-100) : " + Fore.WHITE))
 	opth()
 
