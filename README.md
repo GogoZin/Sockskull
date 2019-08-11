@@ -31,7 +31,7 @@ I Name It -> Sockskull
     
     So I Take Sometime To Fix It 
     
-    Now The Script Is More Stable And More Powerful -2019/8/10
+    Now The Script Is More Stable And More Powerful -2019/8/11
     
 *************************************************************
 GOGOZIN 2019/8/2
